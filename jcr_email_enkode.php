@@ -75,7 +75,9 @@ if (txpinterface === 'public') {
     if (class_exists('\Textpattern\Tag\Registry')) {
         Txp::get('\Textpattern\Tag\Registry')
                 ->register('jcr_email_enkode')
-                ->register('jcr_email_enkode_all');
+                ->register('jcr_email_enkode_all')
+                ->register('jcr_safe_email')
+                ->register('safe_email');
     }
 
     // Include StandalonePHPEnkoder.php (saved in plugins/jcr_email_enkode/data.txp)
@@ -98,6 +100,7 @@ if (txpinterface === 'public') {
             'email'          => $default_email,
             'class'          => 'email',
             'subject'        => '',
+            'link_text'      => '',  // legacy attribute (deprecated)
             'linktext'       => '',
             'bot_msg'        => '',
             'title'          => ''
@@ -108,10 +111,27 @@ if (txpinterface === 'public') {
 
             // If used as a container tag, use contained HTML as linktext (overrides attribute)
             if ($thing !== null) {
+
                 $linktext = $thing;
+
             } elseif (empty($linktext)) {
+
+                // Legacy support for link_text attribute (deprecated)
+                if (!empty($link_text)) {
+
+                    // Signal that the attribute is deprecated
+                    if ($production_status === 'debug') {
+                        trigger_error('jcr_email_enkode: link_text attribute deprecated: use linktext attribute instead.', E_USER_NOTICE);
+            	    }
+
+                    $linktext = $link_text;
+
                 // If linktext still empty, use the email address (enkoder will handle it too)
-                $linktext = $email;
+                } else {
+
+                    $linktext = $email;
+                }
+
             }
 
             // Instantiate StandalonePHPEnkoder
@@ -186,6 +206,20 @@ if (txpinterface === 'public') {
     	    }
 
         }
+    }
+
+
+    /**
+     * Legacy-compatible function aliases
+     */
+    function safe_email($atts, $thing = null)
+    {
+        return jcr_email_enkode($atts, $thing);
+    }
+
+    function jcr_safe_email($atts, $thing = null)
+    {
+        return jcr_email_enkode($atts, $thing);
     }
 
 }
@@ -303,6 +337,7 @@ h3. Version 0.3 – 2020/05/01
 * Switched to StandalonePHPEnkoder (using Hivelogic Enkoder's method)
 * Renamed tag to @jcr_email_enkode@.
 * Added @jcr_email_enkode_all@ tag to be used as a container tag.
+* Legacy support for @txp:jcr_safe_email@ / @txp:safe_email@ and 'link_text' attribute.
 * Replaced textpack bot message method with customisable @bot_msg@ attribute
 
 h3. Version 0.2 – 2016/10/28
