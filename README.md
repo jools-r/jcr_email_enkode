@@ -29,26 +29,26 @@ Paste the code into the  *Admin › Plugins* panel, install and enable the plugi
 
 Outputs a spam-resistant email link. If used as a container tag, the contained code is used in place of (and overrides) 'linktext'.
 
-**email** *optional*
-The email address to use.
+**email** *optional*  
+The email address to use.  
 Example: `email="your.name@yourdomain.com"`. Default: the value of the variable named `contact_email`.
 
 *Tip: Use txp:variable (or adi_variables / oui_prefs) to set a site-wide variable `contact_email` with a default contact_email. You can then omit `email` attribute.*
 
-**linktext** *optional*
-Optional link text.
+**linktext** *optional*  
+Optional link text.  
 Example: `linktext="Contact us"`. Default: the email address.
 
-**subject** *optional*
-An optional subject line for the email.
+**subject** *optional*  
+An optional subject line for the email.  
 Example: `subject="Online Enquiry"`. Default: none.
 
-**class** *optional*
-Change the link class of the `a` tag.
+**class** *optional*  
+Change the link class of the `a` tag.  
 Example: `class="email-link"`. Default: `email`.
 
-**bot_msg** *optional*
-The text shown to bots or search machines.
+**bot_msg** *optional*  
+The text shown to bots or search machines.  
 Example: `bot_msg="my.name at this domain"`. Default: "email hidden; JavaScript is required".
 
 *Tip: Use txp:variable (or adi_variables / oui_prefs) to set a site-wide variable `email_bot_message` with a default bot message of your own.*
@@ -59,12 +59,12 @@ Encodes all mailto: and plaintext links in the contained HTML block into JavaScr
 
 *For use as a wrapper tag only* (outputs a warning in debug mode if not used as a wrapper).
 
-**class** *optional*
-Change the link class of the `a` tag.
+**class** *optional*  
+Change the link class of the `a` tag.  
 Example: `class="email-link"`. Default: `email`.
 
-**bot_msg** *optional*
-The text shown to bots or search machines.
+**bot_msg** *optional*  
+The text shown to bots or search machines.  
 Example: `bot_msg="my.name at this domain"`. Default: "email hidden; JavaScript is required".
 
 *Tip: Use txp:variable (or adi_variables / oui_prefs) to set a site-wide variable `email_bot_message` with a default bot message of your own.*
