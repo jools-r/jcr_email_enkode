@@ -1,0 +1,10 @@
+{
+  "name": "jcr_email_enkode",
+  "description": "Email obfuscator for Textpattern CMS based on Hivelogic Enkoder",
+  "version": "0.3.0",
+  "type": 0,
+  "author": "jcr / txpbuilders",
+  "author_uri": "https://txp.builders/",
+  "order": 5,
+  "flags": 0
+}

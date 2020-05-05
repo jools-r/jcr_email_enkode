@@ -1,0 +1,16 @@
+{
+  "name": "jools-r/jcr_email_enkode",
+  "description": "Email obfuscator for Textpattern CMS based on Hivelogic Enkoder",
+  "keywords": ["textpattern", "plugin", "email obfuscation"],
+  "homepage": "https://github.com/jools-r/jcr_email_enkode",
+  "license": "GPL-2.0",
+  "type": "textpattern-plugin",
+  "support": {
+    "issues": "https://github.com/jools-r/jcr_email_enkode/issues",
+    "source": "https://github.com/jools-r/jcr_email_enkode"
+  },
+  "require": {
+    "textpattern/lock": ">=4.8.0",
+    "textpattern/installer": "*"
+  }
+}
