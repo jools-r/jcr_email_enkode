@@ -17,7 +17,7 @@ $plugin['name'] = 'jcr_email_enkode';
 // 1 = Plugin help is in raw HTML.  Not recommended.
 # $plugin['allow_html_help'] = 1;
 
-$plugin['version'] = '0.3.0';
+$plugin['version'] = '0.3.1';
 $plugin['author'] = 'jcr / txpbuilders';
 $plugin['author_uri'] = 'https://txp.builders/';
 $plugin['description'] = 'Email obfuscator for Textpattern CMS based on Hivelogic Enkoder';
@@ -297,6 +297,11 @@ bc. <txp:jcr_email_enkode_all class="o-email-link" bot_msg="[email address remov
 
 
 h2. Changelog
+
+h3. Version 0.3.1 – 2021/03/08
+
+* Prevent clash with pat_speeder (remove comments from inserted JS in the dependency StandalonPHPEnkoder).
+
 
 h3. Version 0.3 – 2020/05/01
 
